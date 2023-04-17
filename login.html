@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+  <h1>Login Page</h1>
+  <form id="login-form" autocomplete="off" action="http://localhost:8080/api/students" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="submit">Login</button>
+  </form>
+  <button id="logout-button" style="display: none;">Logout</button>
+  <script>
+    const loginForm = document.getElementById("login-form");
+    const logoutButton = document.getElementById("logout-button");
+
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Save username and password to localStorage
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+
+      const authHeader = "Basic " + btoa(username + ":" + password);
+      const headers = new Headers();
+      headers.append("Authorization", authHeader);
+
+      fetch("http://localhost:8080/api/students", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Basic " + btoa(username + ":" + password)
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      })
+      .then(response => {
+        if (response.status === 200) {
+          // Hide login form and show logout button
+          loginForm.style.display = "none";
+          logoutButton.style.display = "block";
+          window.location.href = "index.html";
+        } else {
+          alert("Invalid username or password");
+        }
+      })
+      .catch(error => console.error(error));
+    });
+
+    logoutButton.addEventListener("click", (event) => {
+      // Remove username and password from localStorage
+      localStorage.removeItem("username");
+      localStorage.removeItem("password");
+
+      // Show login form and hide logout button
+      loginForm.style.display = "block";
+      logoutButton.style.display = "none";
+    });
+
+    // Check if username and password are saved in localStorage
+    const savedUsername = localStorage.getItem("username");
+    const savedPassword = localStorage.getItem("password");
+
+    if (savedUsername && savedPassword) {
+      // Hide login form and show logout button
+      loginForm.style.display = "none";
+      logoutButton.style.display = "block";
+    }
+  </script>
+</body>
+</html>
+
+
+

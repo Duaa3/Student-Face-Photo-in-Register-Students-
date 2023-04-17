@@ -1,0 +1,129 @@
+body#loginBody{
+	background: url('https://as2.ftcdn.net/v2/jpg/02/74/45/15/1000_F_274451578_YTqT3pYjmH22O8rkcgYAr5L78R2TqEVF.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+body{	
+	font-family: arial;
+}
+
+form {
+    display: none;
+  }
+  
+div.loginHeader{
+	text-align: center;
+}
+.alignLeft{
+	text-align: left;
+}
+div.loginHeader{
+	margin-bottom: 150px;
+}
+div.loginHeader h1{
+	font-size: 100px;
+	color:#2b4fab;
+	padding:0px;
+	margin:0px;
+}
+div.loginHeader p{
+	color:#dae2ff;
+	font-size: 50px;
+	margin:0px;
+	text-transform: uppercase;
+	display: inline-block;
+}
+
+div.loginHeader p:after{
+	content:'';
+	display: block;
+	height: 5px;
+	background: #85a1f6;
+	margin:0 auto;
+}
+div.loginBody form{
+	margin:0 auto;
+	width: 450px;
+	background: rgba(0,0,0,.5);
+	padding:50px;
+	border:2px solid #fff;
+	border-radius: 8px;
+}
+
+div.loginInputsContainer{
+	margin-top:30px;
+}
+
+div.loginInputsContainer label{
+	display: block;
+	text-transform: uppercase;
+	font-size: 20px;	
+	font-weight: bold;
+	color:#fff;
+}
+
+div.loginInputsContainer input{
+	height: 30px;
+	width:100%;
+	border:2px solid #0306d4;
+	font-size:20px;
+	padding:5px;
+	text-align: center;
+	font-style: italic;
+}
+button[type="submit"] {
+  background-color: #5298ce; /* Set background color */
+  color: white; /* Set text color */
+  padding: 12px 20px; /* Add padding */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add rounded corners */
+  cursor: pointer; /* Add cursor on hover */
+}
+
+button[type="submit"]:hover {
+  background-color: #3e738e; /* Darken background color on hover */
+}
+button[type="button"] {
+	margin: 0 auto; /* Center button */
+	background-color: #13609b; /* Set background color */
+	color: white; /* Set text color */
+	padding: 20px 40px; /* Add padding */
+	border: none; /* Remove border */
+	border-radius: 10px; /* Add rounded corners */
+	cursor: pointer; /* Add cursor on hover */
+	width: 200 px; /* Set button width */
+    
+  }
+  
+  button[type="button"]:hover {
+	background-color: #114761; /* Darken background color on hover */
+  }
+#student-list-container {
+    margin-top: 50px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  table th {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+  }
+  table {
+    color: white;
+  }
+  
+  td {
+    color: white;
+  }
+    
